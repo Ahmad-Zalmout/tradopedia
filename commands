@@ -1,0 +1,6 @@
+source ../venv/bin/activate
+python3 manage.py runserver
+sudo service redis-server stop
+redis-server
+celery -A realtime worker -l info
+celery -A realtime beat -l info
